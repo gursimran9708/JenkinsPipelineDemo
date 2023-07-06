@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+  
+        stage('Build') {
+            steps {
+                echo 'Build'
+            }
+        }
+        
+        stage('DevJob') {
+            steps {
+                echo 'DevJob'
+                build quietPeriod: 5, job: 'devjob'
+            }
+        }
+    }  
+    
+}
